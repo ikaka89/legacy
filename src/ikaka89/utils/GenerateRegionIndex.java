@@ -31,8 +31,9 @@ public class GenerateRegionIndex {
 	
 	public void executeByChrom() {
 		Map<String,Integer> chrom_lengths = gcon.getGenome().getChromLengthMap();
-		int index = 0;
+		
 		for(String chr : chrom_lengths.keySet()) {
+			int index = 0;
 			int length = chrom_lengths.get(chr);
 			for(int midpt=binwidth/2; midpt<length; midpt=midpt+binstep) {
 				Region reg = new Region(gcon.getGenome(), chr, midpt-binwidth/2, midpt+binwidth/2);
