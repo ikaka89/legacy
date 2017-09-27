@@ -36,7 +36,7 @@ public class GenerateRegionIndex {
 			int index = 0;
 			int length = chrom_lengths.get(chr);
 			for(int midpt=binwidth/2; midpt<length; midpt=midpt+binstep) {
-				Region reg = new Region(gcon.getGenome(), chr, midpt-binwidth/2, midpt+binwidth/2);
+				Region reg = new Region(gcon.getGenome(), chr, midpt-binwidth/2, Math.min((midpt+binwidth/2),length));
 				index++;
 				StringBuilder  sb = new StringBuilder();
 				sb.append(reg.toString());sb.append("\t");sb.append(index);
